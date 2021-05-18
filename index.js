@@ -1,10 +1,17 @@
-const express = require("express");
-const cors = require("cors");
 const app = express();
+
+const cors = require("cors");
+
+const express = require("express");
+
 const PORT = 5000;
+
 app.use(cors());
+
 app.use(express.urlencoded({ extended: true }));
+
 app.use(express.json());
+
 app.use((req, res) => {
   const inspectValues = {
     url: req.url,
@@ -16,6 +23,7 @@ app.use((req, res) => {
   console.log(inspectValues);
   res.send({ inspectValues });
 });
+
 app.listen(PORT, () => {
   console.log(`Running on PORT ${PORT}`);
 });
